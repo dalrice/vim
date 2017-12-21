@@ -1,0 +1,25 @@
+" Enable folding with the spacebar
+nnoremap <space> za
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=79
+
+
+set shiftwidth=0    " Use tabstop
+set softtabstop=-1  " Use shiftwidth
+set autoindent
+set fileformat=unix
+set textwidth=79
+set expandtab
+set nu
+set encoding=utf-8
+syntax enable
+
+
+au BufNewFile,BufRead *.py set tabstop=4
+au BufNewFile,BufRead *.js,*.html,*.css set tabstop=2
+
+
+highlight BadWhitespace guibg=red ctermbg=darkred
+au BufRead,BufNewFile *.py,*.js,*.html,*.css match BadWhitespace /\s\+$/
