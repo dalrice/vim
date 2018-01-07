@@ -23,3 +23,16 @@ au BufNewFile,BufRead *.js,*.html,*.css set tabstop=2
 
 highlight BadWhitespace guibg=red ctermbg=darkred
 au BufRead,BufNewFile *.py,*.js,*.html,*.css match BadWhitespace /\s\+$/
+
+" function to handle curser location while reopening same file
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufWinEnter * call ResCur()
+augroup END
