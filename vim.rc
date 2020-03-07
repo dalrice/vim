@@ -36,3 +36,10 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
 augroup END
+
+:command  -nargs=1 Comment :.,.+<args>s/^/#
+:command  -nargs=1 Uncomment :.,.+<args>s/^#/
+:command  -nargs=1 Jscomment :.,.+<args>s/^/\/\/
+:command  -nargs=1 Jsuncomment :.,.+<args>s/^\/\//
+:command  -nargs=1 Stripspace :%s//\s\+$//e
+:command Q :q
